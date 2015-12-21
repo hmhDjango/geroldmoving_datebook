@@ -62,18 +62,18 @@ def move_detail(request, pk):
 @login_required
 def move_edit(request, pk):
     move = get_object_or_404(Move, pk=pk)
+    year = str(move.move_date.year)
+    month = str(move.move_date.month)
+    day = str(move.move_date.day)
     if request.method == "POST":
         form = MoveForm(request.POST, instance=move)
         if form.is_valid():
             move = form.save()
-            return redirect('move_detail', pk=move.pk)
+            return redirect('move_list', year, month, day)
     else:
         form = MoveForm(instance=move)
     # get information needed to create the back_url
     # (all the moves for a specific day)
-    year = str(move.move_date.year)
-    month = str(move.move_date.month)
-    day = str(move.move_date.day)
     back_url = settings.SITE_URL + '/' + year + '/' + month + '/' + day + '/moves'
     return render(request, 'datebook/move_edit.html', {'form': form, 'back_url': back_url, 'year': year, 'month': month, 'day':day})
 
@@ -88,7 +88,7 @@ def move_new(request, year, month, day):
             move.move_date = timezone.datetime(year=int(year), month=int(month), day=int(day))
             move.created_date = timezone.now()
             move.save()
-            return redirect('move_detail', pk=move.pk)
+            return redirect('move_list', year, month, day)
     else:
         form = MoveForm()
     # create the back_url
