@@ -1,0 +1,27 @@
+{% extends 'datebook/base.html' %}
+
+{% block content %}
+  {% for move in moves %}
+  <div class="move">
+    <h3>Move Date: {{ move.move_date}}</h3>
+    <div class=move_summary>
+      <div class=move_data>
+        <div class="label">Customer:</div>
+        <div class="value">{{ move.customer }}</div>
+      </div>
+      <div class=move_data>
+        <div class="label">Weight/Rooms:</div>
+        <div class="value">{{ move.weight_rooms }}</div>
+      </div>
+      <div class=move_data>
+        <div class="label">Origin:</div>
+        <div class="value">{{ move.origin }}</div>
+      </div>
+      <div class=move_data>
+        <div class="label">Destination:</div>
+        <div class="value">{{ move.destination }}</div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

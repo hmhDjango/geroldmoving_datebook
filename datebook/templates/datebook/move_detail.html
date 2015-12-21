@@ -1,0 +1,46 @@
+{% extends 'datebook/base.html' %}
+
+{% block content %}
+  <div class="move">
+    <button id="back">Back</button>
+    <h3>{{ move_date }}</h3>
+    <table class="move">
+      <tr>
+        <th class="weight_room">WT/RM</td>
+        <th class="origin">ORIG</td>
+        <th class="destination">DEST</td>
+        <th class="customer">CUSTOMER</td>
+        <th class="pk_ld_del">PK/LD</td>
+        <th class="company">COMP</td>
+        <th class="type">TYPE</td>
+        <th class="men">MEN</td>
+        <th class="remarks">REMARKS</td>
+      </tr>
+      <tr>
+        <td>{{ move.weigth_rooms }}</td>
+        <td>{{ move.origin }}</td>
+        <td>{{ move.destination }}</td>
+        <td>{{ move.customer }}</td>
+        <td>{{ move.pk_ld_del }}</td>
+        <td>{{ move.company }}</td>
+        <td>{{ move.type }}</td>
+        <td>{{ move.men }}</td>
+        <td>{{ move.remarks }}</td>
+      </tr>
+    </table>
+    <div class="details">
+    {{ move.details|linebreaks }}
+    </div>
+    {% if user.is_authenticated %}
+    <a class="btn btn-default" href="{% url 'move_edit' pk=move.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>    
+    {% endif %}
+  </div>
+  <script>
+  $(function() {
+    $( "#back" ).click(function() {
+      location.href = '{{ back_url }}'
+    });
+  });
+  </script>
+{% endblock %}
+

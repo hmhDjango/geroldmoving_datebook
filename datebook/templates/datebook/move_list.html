@@ -1,0 +1,44 @@
+{% extends 'datebook/base.html' %}
+
+{% block content %}
+  <div class="move">
+    <button id="back">Back</button>
+    <h3>{{ move_date }}</h3>
+    <table class="move">
+      <tr>
+        <th class="weight_room">WT/RM</td>
+        <th class="origin">ORIG</td>
+        <th class="destination">DEST</td>
+        <th class="customer">CUSTOMER</td>
+        <th class="pk_ld_del hidden-xs">PK/LD</td>
+        <th class="company hidden-xs">COMP</td>
+        <th class="type hidden-xs">TYPE</td>
+        <th class="men hidden-xs">MEN</td>
+        <th class="remarks hidden-xs">REMARKS</td>
+      </tr>
+     {% for move in moves %}
+      <tr class="move_summary">
+        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.weight_rooms }}</a></td>
+        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.origin }}</a></td>
+        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.destination }}</a></td>
+        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.customer }}</a></td>
+        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.pk_ld_del }}</a></td>
+        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.company }}</a></td>
+        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.type }}</a></td>
+        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.men }}</a></td>
+        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.remarks }}</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% if user.is_authenticated %}
+    <h4><a href="{% url 'move_new' year=year month=month day=day %}"><span class="glyphicon glyphicon-plus"></span></a></h4>
+    {% endif %}
+  </div>
+  <script>
+  $(function() {
+    $( "#back" ).click(function() {
+      location.href = '{{ back_url }}'
+    });
+  });
+  </script>
+{% endblock %}

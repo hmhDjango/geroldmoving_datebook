@@ -1,0 +1,211 @@
+a:hover {
+  text-decoration: none;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    margin: 0 0 20px 0;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #fff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Helvetica';
+}
+
+.date {
+    float: right;
+    color: #828282;
+}
+
+.move-form textarea, .move-form input {
+    width: 100%;
+}
+
+.title {
+    margin: 10px auto;
+}
+
+.title a, .title a:hover {
+    color: #222;
+}
+
+th.month {
+    font-size: 1.2em;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.move {
+}
+
+.move h1 a, .move h1 a:visited {
+    color: #000000;
+}
+
+table {
+  border: #222 1px solid;
+}
+
+table.move .move_summary:hover, table.move .move_summary:hover a {
+  background: #bbb;
+  color: #222;
+  text-decoration: none;
+}
+
+table tr {
+  color: #222;
+  border-bottom: #222 1px solid;
+}
+
+table.move tr:nth-child(even), table.move tr:nth-child(even) a,
+table.month tr:nth-child(even), table.month tr:nth-child(even) a {
+  background-color: #fff;
+  color: #222;
+}
+
+table.move tr:nth-child(odd), table.move tr:nth-child(odd) a, 
+table.month tr:nth-child(odd), table.month tr:nth-child(odd) a { 
+  background-color: #eee;
+  color: #222;
+}
+
+table.move tr:nth-child(1),
+table.month tr:nth-child(1) {
+  background-color: #ddd;
+  color: black;
+}
+
+table.move tr th {
+  padding: 10px 0px 10px 2px;
+}
+
+table.month tr th {
+  padding: 10px 0px 10px 2px;
+  text-align: center;
+}
+
+th, td {
+  padding-left: 5px;
+}
+
+.move_data {
+  display: block;
+  color: black;
+  border: black 1px solid;
+  margin: 0px;
+  padding: 5px 7px;
+}
+
+.details {
+  border: #222 1px solid;
+  border-top: none;
+  margin-bottom: 10px;
+  min-width: 460px;
+}
+
+.details p {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.label, label {
+  width: 100px;
+  text-align: left;
+}
+
+button.save {
+  float: left;
+}
+
+form table {
+  margin-bottom: 10px;
+}
+
+h2.title {
+  display: inline-block;
+}
+
+a.logout {
+  display: inline-block;
+  position: absolute;
+  padding: 10px 10px 10px 0;
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+h1.title {
+  margin-right: 20px;
+}
+
+.label, .value {
+  display: inline-block;
+  color: black;
+}
+
+.customer {
+  width: 200px;
+}
+
+.origin, .destination, .remarks {
+  width: 80px;
+}
+
+.weight_room, .company, .pk_ld_del, .men, .type {
+  width: 70px;
+}
+
+.month tr td {
+  padding: 10px;
+}
+
+.month tr td.filled, .month tr td.filled a {
+  background: #78daff;
+}
+
+.month tr td a {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.month tr td.today, .month tr td.today a {
+  background: #98da72;
+}
+
+.month_selector p {
+  display: inline-block;
+}
+
+@media(min-width: 768px) {
+  .move_data {
+    display: inline-block;
+  }
+
+  .month tr td {
+    padding: 25px;
+  }
+
+  .month tr td a {
+    padding: 15px;
+  }
+
+}
+
+@media(min-width: 1200px) {
+}
+

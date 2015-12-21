@@ -1,0 +1,25 @@
+{% extends 'datebook/base.html' %}
+
+{% block content %}
+  <button id="back">Back</button>
+  <form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Update</button>
+  </form>
+  <script>
+  $(function() {
+    $(".datepicker").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd',
+      defaultDate: '{{year}}-{{month}}-{{day}}'
+    }).datepicker('setDate', '{{year}}-{{month}}-{{day}}')
+  });
+  $(function() {
+    $( "#back" ).click(function() {
+      location.href = '{{ back_url }}'
+    });
+  });
+  </script>
+{% endblock %}
+

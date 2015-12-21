@@ -1,0 +1,35 @@
+{% extends 'datebook/base.html' %}
+
+{% block content %}
+<div class="month_selector">
+  <p>Select Month: <input type="text" id="datepicker"></p>
+  <button id="go">Go</button>
+</div>
+{{ calendar }}
+  <script>
+  var month;
+  var year;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      dateFormat: 'MM yy'
+    }).focus(function() {
+     var thisCalendar = $(this);
+     $('.ui-datepicker-calendar').detach();
+     $('.ui-datepicker-close').click(function() {
+       month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+       year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+       thisCalendar.datepicker('setDate', new Date(year, month, 1));
+     });
+   });
+  });
+  $(function() {
+    $( "#go" ).click(function() {
+       month = parseInt(month) + 1;
+       location.href = '{{ settings.SITE_URL }}/'+ year +'/'+ month;
+    });
+  });
+  </script>
+{% endblock %}
