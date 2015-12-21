@@ -18,15 +18,23 @@
       </tr>
      {% for move in moves %}
       <tr class="move_summary">
-        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.weight_rooms }}</a></td>
-        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.origin }}</a></td>
-        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.destination }}</a></td>
-        <td><a href="{% url 'move_detail' pk=move.pk %}">{{ move.customer }}</a></td>
-        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.pk_ld_del }}</a></td>
-        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.company }}</a></td>
-        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.type }}</a></td>
-        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.men }}</a></td>
-        <td class="hidden-xs"><a href="{% url 'move_detail' pk=move.pk %}">{{ move.remarks }}</a></td>
+        <td>{{ move.weight_rooms }}</td>
+        <td>{{ move.origin }}</td>
+        <td>{{ move.destination }}</td>
+        <td>{{ move.customer }}</td>
+        <td class="hidden-xs">{{ move.pk_ld_del }}</td>
+        <td class="hidden-xs">{{ move.company }}</td>
+        <td class="hidden-xs">{{ move.type }}</td>
+        <td class="hidden-xs">{{ move.men }}</td>
+        <td class="hidden-xs">{{ move.remarks }}</td>
+      </tr>
+      <tr class="move_details hidden">
+        <td colspan="8">{{ move.details|linebreaks }}</td>
+        <td>
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'move_edit' pk=move.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        </td>
       </tr>
       {% endfor %}
     </table>
@@ -38,6 +46,12 @@
   $(function() {
     $( "#back" ).click(function() {
       location.href = '{{ back_url }}'
+    });
+  });
+  $(function() {
+    $( ".move_summary").click(function() {
+      $(this).toggleClass('open');
+      $(this).closest('tr').next().toggleClass('hidden');
     });
   });
   </script>

@@ -51,7 +51,8 @@ th.month {
     margin-right: 20px;
 }
 
-.move {
+.move_summary {
+  cursor: pointer;
 }
 
 .move h1 a, .move h1 a:visited {
@@ -73,17 +74,17 @@ table tr {
   border-bottom: #222 1px solid;
 }
 
-table.move tr:nth-child(even), table.move tr:nth-child(even) a,
 table.month tr:nth-child(even), table.month tr:nth-child(even) a {
   background-color: #fff;
   color: #222;
 }
 
-table.move tr:nth-child(odd), table.move tr:nth-child(odd) a, 
+table.move tr.open,
 table.month tr:nth-child(odd), table.month tr:nth-child(odd) a { 
   background-color: #eee;
   color: #222;
 }
+
 
 table.move tr:nth-child(1),
 table.month tr:nth-child(1) {
