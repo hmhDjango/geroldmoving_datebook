@@ -192,6 +192,11 @@ h1.title {
   display: inline-block;
 }
 
+.content {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 @media(min-width: 768px) {
   .move_data {
     display: inline-block;
@@ -204,7 +209,7 @@ h1.title {
   .month tr td a {
     padding: 15px;
   }
-
+ 
 }
 
 @media(min-width: 1200px) {
