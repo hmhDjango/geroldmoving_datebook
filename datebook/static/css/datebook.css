@@ -199,6 +199,10 @@ h1.title {
   margin-right: 10px;
 }
 
+h2.title.print {
+  display: none;
+}
+
 @media(min-width: 768px) {
   .move_data {
     display: inline-block;
@@ -214,6 +218,17 @@ h1.title {
  
 }
 
-@media(min-width: 1200px) {
-}
+@media print {
 
+  @page {
+    size: 8.5in 11in;
+  }
+
+  button, .btn, .glyphicon, a, a.logout {
+    display: none;
+  }
+
+  h2.title.print {
+    display: inline-block;
+  }
+}
