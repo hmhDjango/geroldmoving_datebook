@@ -40,6 +40,14 @@ h1, h2, h3, h4 {
     color: #222;
 }
 
+.glyphicon-remove {
+  color: red;
+}
+
+.glyphicon-pencil {
+  color: #428BCA;
+}
+
 th.month {
     font-size: 1.2em;
 }
@@ -61,12 +69,6 @@ th.month {
 
 table {
   border: #222 1px solid;
-}
-
-table.move .move_summary:hover, table.move .move_summary:hover a {
-  background: #bbb;
-  color: #222;
-  text-decoration: none;
 }
 
 table tr {

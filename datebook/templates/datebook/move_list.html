@@ -29,10 +29,15 @@
         <td>{{ move.remarks }}</td>
       </tr>
       <tr class="move_details hidden">
-        <td colspan="8">{{ move.details|linebreaks }}</td>
+        <td colspan="7">{{ move.details|linebreaks }}</td>
         <td>
         {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'move_edit' pk=move.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        </td>
+        <td>
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'move_remove' pk=move.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
         </td>
       </tr>
@@ -52,6 +57,13 @@
     $( ".move_summary").click(function() {
       $(this).toggleClass('open');
       $(this).closest('tr').next().toggleClass('hidden');
+    });
+  });
+  $(function() {
+    $(".glyphicon-remove").click(function(e) {
+      if (!confirm("This move will be deleted.")) {
+         e.preventDefault();
+      }
     });
   });
   </script>

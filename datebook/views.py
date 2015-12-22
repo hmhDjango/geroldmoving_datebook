@@ -47,6 +47,16 @@ def move_list(request, year, month, day):
     back_url = settings.SITE_URL + '/' + year + '/' + month
     return render(request, 'datebook/move_list.html', {'moves': moves, 'move_date': move_date, 'year': year, 'month': month, 'day': day, 'back_url': back_url})
 
+# cancel move from list
+@login_required
+def move_remove(request, pk):
+    move = get_object_or_404(Move, pk=pk)
+    year = str(move.move_date.year)
+    month = str(move.move_date.month)
+    day = str(move.move_date.day)
+    move.delete()
+    return redirect('datebook.views.move_list', year, month, day)
+
 # displays all the details for a specific move
 @login_required
 def move_detail(request, pk):
